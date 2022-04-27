@@ -4,10 +4,11 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('mongodb-express-nextjs:server');
-var http = require('http');
+import app from '../app.js';
+import debug from 'debug';
+import http from 'http';
 
+debug('mongodb-express-nextjs:server')
 /**
  * Get port from environment and store in Express.
  */

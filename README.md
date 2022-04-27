@@ -17,8 +17,6 @@ title: MongoDB, Express, NextJS 활용 웹앱 제작 연습
 npm run dev-server
 ```
 
-<!-- It will run command `npm run dev-server` and `npm run dev-client` -->
-
 ### Client
 
 ```bash
