@@ -1,0 +1,7 @@
+# Individual
+.env
+node_modules/
+TODO
+
+# MongoDB Docker
+mongo-container/db

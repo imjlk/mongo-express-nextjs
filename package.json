@@ -1,0 +1,26 @@
+{
+  "name": "mongo-express-nextjs",
+  "version": "0.0.1",
+  "description": "Weekly project",
+  "main": "index.js",
+  "scripts": {
+    "dev-server": "npm start --prefix server",
+    "dev-client": "yarn --cwd client run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imjlk/mongo-express-nextjs.git"
+  },
+  "keywords": [
+    "mongoDB",
+    "Express",
+    "Next.js"
+  ],
+  "author": "imjlk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imjlk/mongo-express-nextjs/issues"
+  },
+  "homepage": "https://github.com/imjlk/mongo-express-nextjs#readme"
+}
