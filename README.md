@@ -9,6 +9,7 @@ title: MongoDB, Express, NextJS 활용 웹앱 제작 연습
 - Docker
 - Node.js
 - Yarn
+- VSCode
 
 ### Server
 
