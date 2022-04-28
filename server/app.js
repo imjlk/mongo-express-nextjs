@@ -4,6 +4,7 @@ import logger from 'morgan';
 
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
+import apiRouter from './routes/api/index.js';
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use(express.static('public'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/api', apiRouter);
 
 export default app;
