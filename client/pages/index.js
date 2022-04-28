@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react'
 
-const SERVER = process.env.SERVER
+const EXPRESS_SERVER = process.env.EXPRESS_SERVER
 
 export default function Home({ serverTimestamp }) {
   const [timestamp, setTimestamp] = useState(serverTimestamp)
@@ -28,7 +28,7 @@ export default function Home({ serverTimestamp }) {
 
 export async function getServerSideProps() {
   // FIX: 에러 핸들링 어떻게?
-  const response = await fetch(SERVER + '/api/now')
+  const response = await fetch(EXPRESS_SERVER + '/api/now')
   const data = await response.json()
   const serverTimestamp = data.now
   return {

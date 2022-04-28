@@ -14,7 +14,7 @@ function SideNavBar({ children, calcHeight }) {
   const activePath = (path) => (path === router.pathname ? 'bg-gray-200' : '')
 
   return (
-    <main className="flex h-[calc(100vh-7em)] bg-gray-200">
+    <main className="flex h-[calc(100vh-8em)] bg-gray-200">
       <aside className="flex flex-col items-center bg-white text-gray-700 shadow">
         <ul>
           <li className={`hover:bg-gray-100 ${activePath('/')}`}>
@@ -82,7 +82,7 @@ function SideNavBar({ children, calcHeight }) {
           </button>
         </div>
       </aside>
-      <section className="container mx-auto flex max-w-3xl flex-1 overflow-auto p-4">
+      <section className="container mx-auto flex flex-1 overflow-auto p-4">
         {children}
       </section>
     </main>
