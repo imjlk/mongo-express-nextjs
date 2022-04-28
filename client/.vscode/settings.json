@@ -6,5 +6,7 @@
     "titleBar.inactiveForeground": "#000000CC",
     "titleBar.activeBackground": "#ffc600",
     "titleBar.inactiveBackground": "#ffc600CC"
-  }
+  },
+  "css.customData": [".vscode/css-custom-data.json"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }

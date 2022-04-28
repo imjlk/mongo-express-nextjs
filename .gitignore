@@ -2,6 +2,7 @@
 .env
 node_modules/
 TODO
+.vscode/
 
 # MongoDB Docker
 mongo-container/db
