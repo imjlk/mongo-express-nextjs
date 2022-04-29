@@ -14,6 +14,12 @@ title: MongoDB, Express, NextJS 활용 웹앱 제작 연습
 ### Server
 
 ```bash
+cp .env.sample .env
+```
+
+Copy `.env.sample` to `.env` then run start script
+
+```bash
 npm run dev-server
 ```
 
