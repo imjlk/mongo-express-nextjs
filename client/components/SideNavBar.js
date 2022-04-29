@@ -12,6 +12,7 @@ function SideNavBar({ children, calcHeight }) {
   const anchorClasses =
     'flex h-16 w-full items-center justify-center px-4 focus:text-orange-500'
   const activePath = (path) => (path === router.pathname ? 'bg-gray-200' : '')
+  const handleClickLogin = () => router.push('/login')
 
   return (
     <main className="flex h-[calc(100vh-8em)] bg-gray-200">
@@ -60,6 +61,7 @@ function SideNavBar({ children, calcHeight }) {
 
         <div className="mt-auto flex h-16 w-full items-center">
           <button
+            onClick={handleClickLogin}
             className="mx-auto flex h-16 w-full items-center
 				justify-center hover:bg-red-200 focus:text-orange-500 focus:outline-none"
           >
@@ -82,7 +84,7 @@ function SideNavBar({ children, calcHeight }) {
           </button>
         </div>
       </aside>
-      <section className="container mx-auto flex flex-1 overflow-auto p-4">
+      <section className="container mx-auto flex flex-1 justify-center overflow-auto py-4">
         {children}
       </section>
     </main>
