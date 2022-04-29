@@ -6,7 +6,8 @@
   "scripts": {
     "dev-server": "npm start --prefix server",
     "dev-client": "yarn --cwd client run dev",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/imjlk/mongo-express-nextjs/issues"
   },
-  "homepage": "https://github.com/imjlk/mongo-express-nextjs#readme"
+  "homepage": "https://github.com/imjlk/mongo-express-nextjs#readme",
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
+    "prettier": "2.6.2"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
+  }
 }
