@@ -1,18 +1,23 @@
 import { useRouter } from 'next/router'
+import { useRef } from 'react'
 
 function Login() {
   const router = useRouter()
+  const formRef = useRef()
+
   const handleClickRegister = () => router.push('/register')
   const handleSubmitLogin = (e) => {
-    const currentForm = e.target.closest('form')
-    currentForm.reportValidity()
+    formRef.current.reportValidity()
     e.preventDefault()
   }
 
   return (
     <div className="flex flex-1 items-center justify-center">
       <div className="w-11/12 md:w-1/2 lg:w-2/5">
-        <form className="min-w-full rounded-lg bg-white p-6 shadow-lg md:p-10">
+        <form
+          ref={formRef}
+          className="min-w-full rounded-lg bg-white p-6 shadow-lg md:p-10"
+        >
           <h1 className="mb-6 text-center font-sans text-2xl font-bold text-gray-600">
             Login
           </h1>
