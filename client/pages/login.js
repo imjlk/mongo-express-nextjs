@@ -1,14 +1,32 @@
 import { useRouter } from 'next/router'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { userActions } from '../redux/reducers/userReducer.ts'
 
 function Login() {
   const router = useRouter()
   const formRef = useRef()
+  const [loginInfo, setLoginInfo] = useState({
+    userid: '',
+    password: '',
+  })
+  const dispatch = useDispatch()
+
+  const handleChange = (e) => {
+    e.preventDefault()
+    const { name, value } = e.target
+    setLoginInfo({ ...loginInfo, [name]: value })
+  }
 
   const handleClickRegister = () => router.push('/register')
   const handleSubmitLogin = (e) => {
     formRef.current.reportValidity()
     e.preventDefault()
+    dispatch(userActions.loginRequest(loginInfo))
+    setLoginInfo({
+      userid: '',
+      password: '',
+    })
   }
 
   return (
@@ -26,15 +44,16 @@ function Login() {
               className="text-md my-3 block font-semibold text-gray-800"
               htmlFor="email"
             >
-              Email
+              ID
             </label>
             <input
+              onChange={handleChange}
               className="w-full rounded-lg bg-gray-100 px-4 py-2 focus:outline-none"
-              type="email"
-              name="email"
-              id="email"
+              type="text"
+              name="userid"
+              id="userid"
               required
-              placeholder="your@email.tld"
+              placeholder="ID"
             />
           </div>
           <div>
@@ -45,6 +64,7 @@ function Login() {
               Password
             </label>
             <input
+              onChange={handleChange}
               className="w-full rounded-lg bg-gray-100 px-4 py-2 focus:outline-none"
               type="password"
               name="password"

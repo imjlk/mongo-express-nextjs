@@ -1,5 +1,7 @@
 import '../styles/globals.css'
 import Layout from '../components/Layout'
+import { wrapper } from '../redux/store.ts'
+
 function MyApp({ Component, pageProps }) {
   return (
     <Layout>
@@ -8,4 +10,4 @@ function MyApp({ Component, pageProps }) {
   )
 }
 
-export default MyApp
+export default wrapper.withRedux(MyApp)
