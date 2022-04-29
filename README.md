@@ -20,5 +20,11 @@ npm run dev-server
 ### Client
 
 ```bash
+cp .env.sample .env
+```
+
+Copy `.env.sample` to `.env` then run start script
+
+```bash
 npm run dev-client
 ```
