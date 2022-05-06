@@ -27,10 +27,10 @@ export const updateEmployee = (employee) => {
   }
 }
 
-export const deleteEmployee = (id) => {
+export const deleteEmployee = (id, token) => {
   return {
     type: t.EMPLOYEE_DELETE_REQUESTED,
-    payload: id,
+    payload: { id, token },
   }
 }
 

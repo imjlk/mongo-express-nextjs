@@ -7,10 +7,11 @@ import {
   setSelectedEmployee,
 } from '../redux/actions/employee'
 import { useEffect } from 'react'
+import { selectUser } from '@/redux/reducers/userReducer.ts'
 
 export function Table() {
   const state = useSelector((state) => state.employee)
-
+  const { token } = useSelector(selectUser)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -49,7 +50,7 @@ export function Table() {
               <button
                 className="btn btn__compact btn__delete"
                 onClick={() => {
-                  dispatch(deleteEmployee(_id))
+                  dispatch(deleteEmployee(_id, token))
                 }}
               >
                 <TrashSVG />

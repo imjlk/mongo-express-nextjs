@@ -4,9 +4,10 @@ import '@/models/dbConnect'
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
   const {
-    query: { id },
+    query: { id, token },
     method,
   } = req
+  const EXPRESS_SERVER = process.env.EXPRESS_SERVER
 
   switch (method) {
     case 'GET':
@@ -40,6 +41,15 @@ export default async (req, res) => {
       }
     case 'DELETE':
       try {
+        const { isAuthorized } = await (
+          await fetch(`${EXPRESS_SERVER}/user/verifyToken/${token}`)
+        ).json()
+        console.log(isAuthorized)
+        if (!isAuthorized)
+          return res.status(401).json({
+            success: false,
+          })
+
         await Employee.deleteOne({ _id: id })
 
         return res.status(200).json({

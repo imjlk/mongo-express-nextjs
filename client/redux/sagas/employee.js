@@ -53,9 +53,12 @@ export function* watchAddEmployee() {
 
 function* deleteEmployee(action) {
   try {
-    const response = yield fetch('/api/employees/' + action.payload, {
-      method: 'DELETE',
-    })
+    const response = yield fetch(
+      `/api/employees/${action.payload.id}?token=${action.payload.token}`,
+      {
+        method: 'DELETE',
+      },
+    )
 
     const deletedEmployee = yield response.json()
 
