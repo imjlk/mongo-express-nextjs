@@ -47,9 +47,9 @@ export const loginApi = async (payload: {
       payload,
       { headers },
     )
-    const loginUser = JSON.stringify(response.data)
-    alert('진행 6 : 응답성공 ' + JSON.stringify(loginUser))
-    localStorage.setItem('loginUser', loginUser)
+    const token = JSON.stringify(response.data)
+    alert('진행 6 : 응답성공 ' + JSON.stringify(token))
+    localStorage.setItem('token', token)
 
     return response.data
   } catch (err) {
@@ -58,7 +58,7 @@ export const loginApi = async (payload: {
 }
 export const logoutApi = async () => {
   try {
-    const response: AxiosResponse<unknown, UserType[]> = await axios.get(
+    const response: AxiosResponse<unknown, UserType[]> = await axios.post(
       `http://127.0.0.1:3333/user/logout`,
       { headers },
     )

@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { selectUser } from '../redux/reducers/userReducer.ts'
 
 function Page() {
-  const [token, setToken] = useState('')
+  const { token } = useSelector(selectUser)
 
-  useEffect(() => {
-    const savedToken = window.localStorage.getItem('loginUser')
-    console.log('savedToken', savedToken)
-    if (savedToken) {
-      setToken(savedToken)
-    }
-  }, [])
+  if (!token) {
+    return <div>Not Authenticated</div>
+  }
   return (
     <div>
       <button
