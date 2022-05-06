@@ -67,6 +67,19 @@ function SideNavBar({ children, calcHeight }) {
               </a>
             </Link>
           </li>
+          <li className={`hover:bg-gray-100 ${activePath('/employee')}`}>
+            <Link href="/employee">
+              <a className={anchorClasses}>
+                <Image
+                  className="mx-auto h-6 w-6"
+                  src="/assets/icons/Report.svg"
+                  alt="My"
+                  width={32}
+                  height={32}
+                />
+              </a>
+            </Link>
+          </li>
         </ul>
 
         {token === null ? (
