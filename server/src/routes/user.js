@@ -19,7 +19,7 @@ router.post('/login', (req, res) => {
   console.log(' 진행 5: 라우터 진입 ')
   UserService().login(req, res)
 })
-router.get('/logout', (req, res) => {
+router.post('/logout', (req, res) => {
   console.log(' LOGOUT ')
   UserService().logout(req, res)
 })

@@ -66,7 +66,7 @@ const UserService = () => {
     },
     logout(req, res) {
       // req.logout();
-      res.json({ msg: 'LOGOUT' })
+      res.status(200).send({ msg: 'LOGOUT' })
     },
     checkDuplicateUserid(req, res) {
       User.findById({ userid: req.body.userid }).exec((err, user) => {
