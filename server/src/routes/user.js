@@ -26,5 +26,8 @@ router.get('/logout', (req, res) => {
 router.get('/getUsers', (req, res) => {
   UserService().getUsers(req, res)
 })
+router.get('/verifyToken/:token', (req, res) => {
+  UserService().verifyToken(req, res)
+})
 
 export default router

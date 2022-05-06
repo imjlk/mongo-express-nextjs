@@ -10,6 +10,7 @@ const UserService = () => {
     join(req, res) {
       console.log(' 5. join 진입' + JSON.stringify(req.body))
 
+      // TODO: 비밀번호 평문 저장 -> 암호화 추가하기
       new User(req.body).save((err) => {
         if (err) {
           res.status(500).json({ message: err })
@@ -45,36 +46,23 @@ const UserService = () => {
             user.generateToken((err, user) => {
               if (err) res.status(400).send(err)
 
-              // 토큰을 저장한다. 어디에? 쿠키, 로컬스토리지
-              res.status(200).json(user)
+              res.status(200).json(user.token)
             })
           })
         },
       )
+    },
+    verifyToken(req, res) {
+      const { token } = req.params
 
-      // const matchDocument = {
-      //     userid: req.body.userid,
-      //     password: req.body.password,
-      //     email: req.body.email,
-      //     name: req.body.name,
-      //     phone: req.body.phone,
-      //     birth: req.body.birth,
-      //     address: req.body.address
-      // };
-      // dbConnect
-      //     .collection("users")
-      //     .insertOne(matchDocument, function (err, result) {
-      //         if (err) {
-      //             res
-      //                 .status(400)
-      //                 .send("Error inserting matches!");
-      //         } else {
-      //             console.log(`Added a new match with id ${result.insertedId}`);
-      //             res
-      //                 .status(204)
-      //                 .send();
-      //         }
-      //     })
+      User.findByToken(token, (err, user) => {
+        // Not Authorized
+        if (err) res.status(401).send(err)
+
+        res.status(200).json({
+          isAuthorized: true,
+        })
+      })
     },
     logout(req, res) {
       // req.logout();
