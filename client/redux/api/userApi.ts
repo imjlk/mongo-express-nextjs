@@ -1,6 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
 
-const EXPRESS_SERVER = 'http://127.0.0.1:3333'
 const headers = {
   'Content-Type': 'application/json',
   Authorization: 'JWT fefege...',
@@ -51,6 +50,7 @@ export const loginApi = async (payload: {
     const loginUser = JSON.stringify(response.data)
     alert('진행 6 : 응답성공 ' + JSON.stringify(loginUser))
     localStorage.setItem('loginUser', loginUser)
+
     return response.data
   } catch (err) {
     return err

@@ -1,6 +1,5 @@
 import { call, delay, put, takeLatest } from 'redux-saga/effects'
 import { joinApi, loginApi, logoutApi } from '../api/userApi.ts'
-
 import { PayloadAction } from '@reduxjs/toolkit'
 import { userActions } from '../reducers/userReducer.ts'
 
@@ -59,7 +58,7 @@ function* login(login: UserLoginType) {
   try {
     const response: UserLoginSuccessType = yield loginApi(login.payload)
     yield put(userActions.loginSuccess(response))
-    window.location.href = '/'
+    // window.location.href = '/'
   } catch (error) {
     yield put(userActions.loginFailure(error))
   }

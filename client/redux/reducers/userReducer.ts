@@ -12,13 +12,13 @@ export interface UserType {
 
 export interface UserState {
   loading: boolean
-  data: UserType[]
+  data: UserType | null
   error: any
 }
 
 const initialState: UserState = {
   loading: false,
-  data: [],
+  data: null,
   error: null,
 }
 
@@ -31,7 +31,7 @@ const userSlice = createSlice({
       state.loading = true
     },
     joinSuccess(state: UserState, { payload }) {
-      state.data = [...state.data, payload]
+      state.data = { ...state.data, ...payload }
       state.loading = false
     },
     joinFailure(state: UserState, { payload }) {
@@ -43,7 +43,8 @@ const userSlice = createSlice({
       state.loading = true
     },
     loginSuccess(state: UserState, { payload }) {
-      state.data = [...state.data, payload]
+      console.log('loginSuccess payload> ', payload)
+      state.data = { ...state.data, ...payload }
       state.loading = false
     },
     loginFailure(state: UserState, { payload }) {
@@ -51,9 +52,7 @@ const userSlice = createSlice({
       state.loading = false
     },
     logoutRequest(state: UserState, payload) {
-      localStorage.removeItem('loginUser')
       state.loading = false
-      window.location.href = '/'
     },
     logoutSuccess(state: UserState) {
       state.loading = false
@@ -62,4 +61,5 @@ const userSlice = createSlice({
 })
 const { reducer, actions } = userSlice
 export const userActions = actions
+export const selectUser = (state) => state.user.data
 export default reducer

@@ -23,6 +23,7 @@ function Login() {
     formRef.current.reportValidity()
     e.preventDefault()
     dispatch(userActions.loginRequest(loginInfo))
+    router.push('/')
     setLoginInfo({
       userid: '',
       password: '',

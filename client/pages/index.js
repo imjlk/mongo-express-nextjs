@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react'
 
 const EXPRESS_SERVER = process.env.EXPRESS_SERVER
 
-export default function Home({ serverTimestamp }) {
+export default function Page({ serverTimestamp }) {
   const [timestamp, setTimestamp] = useState(serverTimestamp)
   const ONE_SECOND = 1000
 

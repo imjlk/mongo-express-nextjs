@@ -28,9 +28,7 @@ function Register() {
     e.preventDefault()
     alert(' 진행 1: 회원가입 클릭 ')
     dispatch(userActions.joinRequest(user))
-    // setUser({
-    //   userid: '', password: '', email: '', name: '', phone: '', birth: '', address: ''
-    // })
+    router.push('/login')
   }
 
   return (
